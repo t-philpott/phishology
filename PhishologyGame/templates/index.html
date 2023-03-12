@@ -1,0 +1,59 @@
+<!-- index.html (HTML) -->
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title>Phishology</title> <!-- make a logo to replace this? -->
+
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+    </head>
+    <body>
+        <h1>Phishology</h1>
+        
+        <!-- The game will be rendered here 
+        <div id="game">
+            
+        </div>
+        -->
+        
+        <div class="level">
+
+            
+            
+        </div>
+
+        <!-- start of computer monitor screen -->
+
+        <div class ="computermonitor">
+
+            <h2 id="Title">Welcome to Phishology</h2>
+
+            <input type="text" id="yourname" name="fname">
+
+            <button id="btnStartGame" class="startgame-btn" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame()" >START GAME</button>
+            
+        
+            <iframe id="emailframe"
+                src=""
+                style="border: 1px solid #000; visibility: hidden;">
+            </iframe>
+
+        </div> 
+
+        <!-- end of computer monitor screen -->
+
+        <div class="choicebuttons">
+
+            <button id="btnMalicious" class="malicious-btn" onclick="maliciousbuttonclick()">Malicious</button>
+            <button id="btnLegitimate" class="legit-btn" onclick="legitimatebuttonclick()">Phishing</button>
+
+
+        </div>
+
+        
+        
+        
+        <script src="static/game.js"></script>
+    </body>
+</html>
