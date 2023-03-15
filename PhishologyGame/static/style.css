@@ -42,6 +42,66 @@ iframe {
 
 }
 
+.emailheader {
+    display: flex;
+    flex-direction: row;
+    
+
+    overflow: hidden;
+    
+    background-color: #ddd;
+    
+    width: 1280px;
+    height: auto;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 1; /* position the header above the iframe*/
+    
+  } 
+
+.sender {
+    flex: 1;
+    margin-left: 10px;
+    color: #000;
+}
+
+.receiver {
+    flex: 1;
+    margin-left: 10px;
+    color: #000;
+}
+
+.subject {
+    flex: 3;
+    margin-left: 10px;
+    color: #000; 
+}
+
+.reply-btn {
+    flex: 1;  
+    color: #000000;    
+    background-color: transparent;
+    margin-right: 5px;
+
+    font-size: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.fwd-btn {
+    flex: 1;
+    color: #000000;  
+    background-color: transparent;
+    margin-right: 10px;
+
+    font-size: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+
 .choicebuttons {
     text-align: center;
     margin: 0 auto;

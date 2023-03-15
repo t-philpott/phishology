@@ -59,6 +59,24 @@ function displayScore(){
 
 ///////// GAME START
 
+// Initialise list of emails, both malicious and legitimate
+const emailist = [
+    ///////////////////////////////////////////////////////////////////
+    // LEGITIMATE //
+    //////////////////////////////////////////////////////////////////
+    { 
+    path: '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html',
+    category: 'legitimate'
+    },
+
+    ///////////////////////////////////////////////////////////////////
+    // MALICIOUS //
+    //////////////////////////////////////////////////////////////////
+    { 
+    path: '/static/MaliciousEmails/1 Other Gmail Signin Attempt.html',
+    category: 'malicious'
+    },
+                ]
 
 // USER READS DETAILS
 // USER CLICKS START
@@ -75,6 +93,11 @@ function StartGame(){
 
 
     document.getElementById("emailframe").style.visibility = "visible";
+    document.getElementById("headeremail").style.visibility = "visible";
+
+
+    // choose 10 random emails from the emaillist (not yet complete)
+    let randomized_emaillist = emailist.sort(() => Math.random() - 0.5).slice(0, 10);
     
 
     // remove the start button and description when the iframe is loaded.//
@@ -85,7 +108,9 @@ function StartGame(){
 
     let iframe = document.getElementsByTagName('iframe')[0];
 
-    iframe.setAttribute('src', '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html');
+    iframe.setAttribute('src', randomized_emaillist[0].path);
+
+    window.alert(randomized_emaillist[0].category)
 
 
 }
@@ -98,6 +123,12 @@ function StartGame(){
 
 
 function maliciousbuttonclick(){
+
+    //email header information
+    document.getElementById('senderid').innerHTML = 'Smth else';
+    document.getElementById('receiverid').innerHTML = 'Another name';
+    document.getElementById('subjectid').innerHTML = 'Another subject';
+    /////////////////////////////////////////////////////////////////
 
     //////////// loading emails
 
