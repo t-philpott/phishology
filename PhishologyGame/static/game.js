@@ -78,10 +78,18 @@ const emailist = [
     },
                 ]
 
-// USER READS DETAILS
-// USER CLICKS START
-// 10 RANDOM EMAILS ARE SORTED INTO 10 QUESTIONS
-// FIRST QUESTION IS DISPLAYED   
+
+let randomized_emaillist = [];
+
+
+// initiating question number to track which email the user is on
+let questionnum = 0;
+
+// tracking how many questions the user got correct / incorrect
+let correctanswernum = 0;
+let incorrectanswernum = 0;
+
+
 
 // note: this function takes place inside the iframe, not the parent index.html page.
 function StartGame(){
@@ -89,7 +97,7 @@ function StartGame(){
     // initalise start button and description so it can be removed upon starting
     const startgamebutton = document.getElementById('btnStartGame');
     const startgamedescription = document.getElementById('Title');
-    const nameofuser = document.getElementById('yourname');
+    //const nameofuser = document.getElementById('yourname');
 
 
     document.getElementById("emailframe").style.visibility = "visible";
@@ -97,44 +105,159 @@ function StartGame(){
 
 
     // choose 10 random emails from the emaillist (not yet complete)
-    let randomized_emaillist = emailist.sort(() => Math.random() - 0.5).slice(0, 10);
+    //let randomized_emaillist = emailist.sort(() => Math.random() - 0.5).slice(0, 10);
+
+    // pick 10 random emails from the emaillist, and push them into the randomized email list.
+    for (let num = 0; num < 10; num++){
+        let emailnum = Math.floor(Math.random() * emailist.length);
+        randomized_emaillist.push(emailist[emailnum]);
+    }
     
 
     // remove the start button and description when the iframe is loaded.//
     startgamebutton.remove();
     startgamedescription.remove();
-    nameofuser.remove();
+    //nameofuser.remove();
     //////////////////////////////////////////////////////////////////////
 
+    //get iframe
     let iframe = document.getElementsByTagName('iframe')[0];
 
-    iframe.setAttribute('src', randomized_emaillist[0].path);
+    // gamestart //
 
-    window.alert(randomized_emaillist[0].category)
+    //window.alert(randomized_emaillist[0].category)
+
+    iframe.setAttribute('src', randomized_emaillist[questionnum].path);
 
 
+    // show question number upon starting the game
+    document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
 }
 
+// displays the next question from the questionnum
+function showQuestion() {
+    // display first random email in iframe 
+    let iframe = document.getElementsByTagName('iframe')[0];
+    iframe.setAttribute('src', randomized_emaillist[questionnum].path);
+}
+
+// function checkQuestion() {
+//     // check if the user's input matches with the question
+
+//     const correctanswer = randomized_emaillist[questionnum].category;
+
+//     window.alert(correctanswer);
+
+//     if (this.id === "btnMalicious" && correctanswer === "malicious"){
+//         // answer is malicious
+//         correctanswer++;
+
+//         // move to next question
+//         questionnum++;
+//     }
+//     else if (this.id === "btnLegitimate" && correctanswer === "legitimate"){
+//         // answer is legitimate
+//         correctanswer++;
+
+//         // move to next question
+//         questionnum++;
+//     }
+//     else{
+//         // the answer is incorrect
+//         incorrectanswernum++;
+
+//         // move to next question
+//         questionnum++;
+//     }
 
 
-
-
+// }
+    
 // BUTTON FUNCTIONS
 
 
-function maliciousbuttonclick(){
+function btnMaliciousClick(){
 
+    // store correct answer
+    const correctanswer = randomized_emaillist[questionnum].category;
+    
+    // prints the correct answer
+    //window.alert("the correct answer is " + correctanswer);
+
+    if (correctanswer === "malicious"){
+        // answer is malicious
+        gameScoreCorrect++;
+        window.alert("correct");
+
+        // move to next question
+        questionnum++;
+        showQuestion();
+
+        // update question number
+        document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
+    }
+    else{
+        // answer is legitimate
+        gameScoreIncorrect++;
+        window.alert("You are incorrect, the answer was " + correctanswer);
+        
+        // move to next question
+        questionnum++;
+        showQuestion();
+
+        // update question number
+        document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
+    }
+
+  }
+
+  function btnLegitimateClick(){
+
+    // store correct answer
+    const correctanswer = randomized_emaillist[questionnum].category;
+    
+    // prints the correct answer
+    //window.alert("the correct answer is " + correctanswer);
+
+    if (correctanswer === "legitimate"){
+        // answer is legitimate
+        gameScoreCorrect++;
+        window.alert("You are correct, the answer was " + correctanswer);
+
+        // move to next question
+        questionnum++;
+        showQuestion();
+
+        // update question number
+        document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) +"/10";
+    }
+    else{
+        // answer is malicious
+        gameScoreIncorrect++;
+        window.alert("You are incorrect, the answer was " + correctanswer);
+
+        // move to next question
+        questionnum++;
+        showQuestion();
+        
+        // update question number
+        document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) +"/10";
+    }
+
+
+    
+    
     //email header information
-    document.getElementById('senderid').innerHTML = 'Smth else';
-    document.getElementById('receiverid').innerHTML = 'Another name';
-    document.getElementById('subjectid').innerHTML = 'Another subject';
+    //document.getElementById('senderid').innerHTML = 'senders email';
+    //document.getElementById('receiverid').innerHTML = 'user email';
+    //document.getElementById('subjectid').innerHTML = 'subject';
     /////////////////////////////////////////////////////////////////
 
-    //////////// loading emails
+    
 
-    let iframe = document.getElementsByTagName('iframe')[0];
+    //let iframe = document.getElementsByTagName('iframe')[0];
 
-    iframe.setAttribute('src', '/static/LegitimateEmails/2 Twitter.html');
+    //iframe.setAttribute('src', '/static/LegitimateEmails/2 Twitter.html');
 
     //document.getElementById("emailframe").contentWindow.document.body.innerHTML = "/static/START.html";
 
