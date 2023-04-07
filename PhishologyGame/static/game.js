@@ -78,8 +78,10 @@ const emailist = [
     },
                 ]
 
-
+// array to store randomly chosen emails
 let randomized_emaillist = [];
+// array to store answered emails to prevent them from being displayed again
+let answered_questions = [];
 
 
 // initiating question number to track which email the user is on
@@ -110,7 +112,15 @@ function StartGame(){
     // pick 10 random emails from the emaillist, and push them into the randomized email list.
     for (let num = 0; num < 10; num++){
         let emailnum = Math.floor(Math.random() * emailist.length);
-        randomized_emaillist.push(emailist[emailnum]);
+        
+        // store email
+        let randomemail = emailist[emailnum];
+
+        // prevent duplicate emails being added to the list
+        if (!randomized_emaillist.includes(randomemail)){
+            randomized_emaillist.push(emailist[emailnum]);
+        } 
+        
     }
     
 
@@ -188,6 +198,12 @@ function btnMaliciousClick(){
         // answer is malicious
         gameScoreCorrect++;
         window.alert("correct");
+
+        // // remove email from list to prevent it from being displayed again.
+        // answered_questions.push(randomized_emaillist[questionnum]);
+        // randomized_emaillist.splice(randomized_emaillist[questionnum], 1)
+        // console.log(randomized_emaillist)
+        // console.log(answered_questions)
 
         // move to next question
         questionnum++;
