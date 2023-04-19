@@ -1,3 +1,62 @@
+/*!
+* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
+* Copyright 2013-2023 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
+*/
+//
+// Scripts
+// 
+
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Navbar shrink function
+    var navbarShrink = function () {
+        const navbarCollapsible = document.body.querySelector('#mainNav');
+        if (!navbarCollapsible) {
+            return;
+        }
+        if (window.scrollY === 0) {
+            navbarCollapsible.classList.remove('navbar-shrink')
+        } else {
+            navbarCollapsible.classList.add('navbar-shrink')
+        }
+
+    };
+
+    // Shrink the navbar 
+    navbarShrink();
+
+    // Shrink the navbar when page is scrolled
+    document.addEventListener('scroll', navbarShrink);
+
+    // Activate Bootstrap scrollspy on the main nav element
+    const mainNav = document.body.querySelector('#mainNav');
+    if (mainNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#mainNav',
+            rootMargin: '0px 0px -40%',
+        });
+    };
+
+    // Collapse responsive navbar when toggler is visible
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
+    });
+
+});
+
+
+
+
+
 // phishology - game.js (JavaScript)
 
 // AUDIO SECTION
@@ -66,7 +125,9 @@ const emailist = [
     //////////////////////////////////////////////////////////////////
     { 
     path: '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html',
-    category: 'legitimate'
+    category: 'legitimate',
+    sender: 'no-reply@accounts.google.com',
+    subject: 'Suspicious sign in attempt blocked'
     },
 
     ///////////////////////////////////////////////////////////////////
@@ -74,7 +135,9 @@ const emailist = [
     //////////////////////////////////////////////////////////////////
     { 
     path: '/static/MaliciousEmails/1 Other Gmail Signin Attempt.html',
-    category: 'malicious'
+    category: 'malicious',
+    sender: 'no-reply@axedzla.accounts.google.com',
+    subject: 'New sign-in notification'
     },
                 ]
 
@@ -138,6 +201,8 @@ function StartGame(){
     //window.alert(randomized_emaillist[0].category)
 
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
+    document.getElementById("senderid").textContent="From: " + randomized_emaillist[questionnum].sender;
+    document.getElementById("subjectid").textContent="Subject: " + randomized_emaillist[questionnum].subject;
 
 
     // show question number upon starting the game
@@ -149,6 +214,9 @@ function showQuestion() {
     // display first random email in iframe 
     let iframe = document.getElementsByTagName('iframe')[0];
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
+
+    document.getElementById("senderid").textContent="From: " + randomized_emaillist[questionnum].sender;
+    document.getElementById("subjectid").textContent="Subject: " + randomized_emaillist[questionnum].subject;
 }
 
 // function checkQuestion() {
@@ -297,3 +365,4 @@ function btnMaliciousClick(){
 //
 //
 //
+
