@@ -47,6 +47,17 @@
 
 }
 
+.pcenter{
+  margin: 0 auto;
+  margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px; 
+  font-size: larger;
+
+}
+
 .startgame-btn{
     display: block;
     width: 150px;

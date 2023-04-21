@@ -127,6 +127,7 @@ const emailist = [
     path: '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html',
     category: 'legitimate',
     sender: 'no-reply@accounts.google.com',
+    receiver: 'user',
     subject: 'Suspicious sign in attempt blocked'
     },
 
@@ -137,6 +138,7 @@ const emailist = [
     path: '/static/MaliciousEmails/1 Other Gmail Signin Attempt.html',
     category: 'malicious',
     sender: 'no-reply@axedzla.accounts.google.com',
+    receiver: 'user',
     subject: 'New sign-in notification'
     },
                 ]
@@ -145,15 +147,14 @@ const emailist = [
 let randomized_emaillist = [];
 // array to store answered emails to prevent them from being displayed again
 let answered_questions = [];
-
-
 // initiating question number to track which email the user is on
 let questionnum = 0;
-
 // tracking how many questions the user got correct / incorrect
 let correctanswernum = 0;
 let incorrectanswernum = 0;
 
+// stores the user's entered username.
+var nameofuser = "empty";
 
 
 // note: this function takes place inside the iframe, not the parent index.html page.
@@ -161,16 +162,15 @@ function StartGame(){
 
     // initalise start button and description so it can be removed upon starting
     const startgamebutton = document.getElementById('btnStartGame');
-    const startgamedescription = document.getElementById('Title');
-    //const nameofuser = document.getElementById('yourname');
+    const startgametitle = document.getElementById('Title');
+    const startgamedescription = document.getElementById('gamedescription');
 
+    // stores username
+    nameofuser = document.getElementById('yourname').value;
 
+    // displays the header
     document.getElementById("emailframe").style.visibility = "visible";
     document.getElementById("headeremail").style.visibility = "visible";
-
-
-    // choose 10 random emails from the emaillist (not yet complete)
-    //let randomized_emaillist = emailist.sort(() => Math.random() - 0.5).slice(0, 10);
 
     // pick 10 random emails from the emaillist, and push them into the randomized email list.
     for (let num = 0; num < 10; num++){
@@ -189,6 +189,7 @@ function StartGame(){
 
     // remove the start button and description when the iframe is loaded.//
     startgamebutton.remove();
+    startgametitle.remove();
     startgamedescription.remove();
     //nameofuser.remove();
     //////////////////////////////////////////////////////////////////////
@@ -198,16 +199,62 @@ function StartGame(){
 
     // gamestart //
 
-    //window.alert(randomized_emaillist[0].category)
+    
 
+    // show the first email, and update the email header to provide relevant
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
-    document.getElementById("senderid").textContent="From: " + randomized_emaillist[questionnum].sender;
-    document.getElementById("subjectid").textContent="Subject: " + randomized_emaillist[questionnum].subject;
 
+    // update email header
+    updateEmailHeader();
 
     // show question number upon starting the game
     document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
 }
+
+
+function updateEmailHeader(){
+    document.getElementById("senderid").textContent="From: " + randomized_emaillist[questionnum].sender;
+    document.getElementById("subjectid").textContent="Subject: " + randomized_emaillist[questionnum].subject;
+    
+    var receivername = randomized_emaillist[questionnum].receiver;
+
+    if(receivername === 'user'){
+        document.getElementById("receiverid").textContent="To: " + nameofuser + "@delticore.com";
+    }
+    else{
+        if (receivername === 'delticore'){
+            document.getElementById("receiverid").textContent="To: " + "contact" + "@delticore.com";
+        }
+    }
+}
+
+// Upon the user starting, or navigating to the next question, the stored username will replace possible placeholders within each email.
+function getUsername(){
+
+    let iframe1 = document.getElementsByTagName('iframe')[0];
+    // wait until the iframe has fully loaded so the elements are readable
+    iframe1.onload = function() {
+        updateUsername(iframe1, nameofuser);
+    };
+}
+
+// display the user's entered name within emails that mentions names.
+function updateUsername(iframe1, nameofuser){
+        // add the user's name into an email if it was sent to the user's inbox.
+        var iframeDoc = iframe1.contentWindow.document;
+        // every element in the class 'placeholderusername' will be replaced.
+        var emailnames = iframeDoc.getElementsByClassName("placeholderusername");
+
+        for (var i = 0; i < emailnames.length; i++){
+            emailnames[i].textContent = nameofuser;
+        }
+
+        
+}
+///////////////////////////////////////////////
+
+
+
 
 // displays the next question from the questionnum
 function showQuestion() {
@@ -215,8 +262,7 @@ function showQuestion() {
     let iframe = document.getElementsByTagName('iframe')[0];
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
 
-    document.getElementById("senderid").textContent="From: " + randomized_emaillist[questionnum].sender;
-    document.getElementById("subjectid").textContent="Subject: " + randomized_emaillist[questionnum].subject;
+    updateEmailHeader();
 }
 
 // function checkQuestion() {

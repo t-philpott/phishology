@@ -60,31 +60,36 @@
         
         <div class="level">
 
-         <h2 id="questionnumber"></h2>            
+                   
             
         </div>
 
         <!-- start of computer monitor screen -->
+        <h2 class="center" id="questionnumber"></h2>
+        
 
         <div class ="computermonitor">
 
-            <h2 class="center" id="Title">Welcome to Phishology</h2>
+            <h2 class="center" id="Title">Welcome to Phishology</h2> 
 
-            <!--<input type="text" id="yourname" name="fname">-->
+            <p id="gamedescription" class="pcenter">
+              
+              Welcome, you are a email support specialist working at an organisation named <b>Delticore Industries.</b> <br><br>
+              You will be tasked with managing emails sent to your organisation, as well as emails sent directly to your inbox. <br><br>
 
-            <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame()" >START GAME</button>
+              Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br>
+
+                    <b>Please enter your name</b><br>
+                    <input class="center" type="text" id="yourname" name="username"><b>@delticore.com</b>
             
-            <!--
-                <div id="headeremail" class="emailheader" style="visibility: hidden;">
-                <span id="senderid" class="sender">To:</span>
-                <span id="receiverid" class="receiver">From:</span>
-                <span id="subjectid" class="subject">Subject:</span> 
-                <button id="replybtn" class="reply-btn">Reply</button> 
-                <button id="fwdbtn" class="fwd-btn">Forward</button>                
-            </div>
+                    <br><br>
+                    <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
+            
+            </p>
 
+            <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame();getUsername()" >START GAME</button>
 
-            -->
+            <!-- ##########  email header  ##########-->
 
             <div id="headeremail" class="container-fluid mx-0" style="visibility: hidden;">
                 <div class="row">
@@ -107,6 +112,7 @@
                   </div>
                 </div>
               </div>
+            
             <iframe class="iframe" id="emailframe"
                 src=""
                 style="border: 0px solid #000; visibility: hidden;">
@@ -122,8 +128,8 @@
 
         <div class="choicebuttons">
 
-            <button id="btnMalicious" class="btn btn-success btn-xl enabled" onclick="btnMaliciousClick()">Malicious</button>
-            <button id="btnLegitimate" class="btn btn-danger btn-xl enabled" onclick="btnLegitimateClick()">Phishing</button>
+            <button id="btnMalicious" class="btn btn-danger btn-xl enabled" onclick="btnMaliciousClick();getUsername()">Malicious</button>
+            <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()">Legitimate</button>
 
 
         </div>
