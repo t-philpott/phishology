@@ -248,14 +248,8 @@ function updateUsername(iframe1, nameofuser){
         for (var i = 0; i < emailnames.length; i++){
             emailnames[i].textContent = nameofuser;
         }
-
-        
 }
 ///////////////////////////////////////////////
-
-
-
-
 // displays the next question from the questionnum
 function showQuestion() {
     // display first random email in iframe 
