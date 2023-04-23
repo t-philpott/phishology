@@ -75,7 +75,10 @@
             <p id="gamedescription" class="pcenter">
               
               Welcome, you are a email support specialist working at an organisation named <b>Delticore Industries.</b> <br><br>
-              You will be tasked with managing emails sent to your organisation, as well as other emails sent directly to your inbox. <br><br>
+              You will be tasked with managing emails sent to: <br>
+              your organisation inbox <b>(contact@delticore.com)</b><br>
+              your work inbox <b>(yourname@delticore.com)</b><br>
+              and your personal inbox <b>(yourname@gmail.com)</b><br><br>
 
               Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br>
 
@@ -129,8 +132,8 @@
 
         <div class="choicebuttons">
 
-            <button id="btnMalicious" class="btn btn-danger btn-xl enabled" onclick="btnMaliciousClick();getUsername()">Malicious</button>
-            <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()">Legitimate</button>
+            <button id="btnMalicious" class="btn btn-danger btn-xl enabled" onclick="btnMaliciousClick();getUsername()" style="visibility: hidden;">Malicious</button>
+            <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()" style="visibility: hidden;">Legitimate</button>
             <h5 id="questionnumber"></h5>
 
 

@@ -83,39 +83,6 @@ let gameScoreIncorrect = 0;
 // the user may have 5 chances to complete the game, everytime an answer is incorrect, they will lose a life.
 let Lives = 5;
 
-// function that once called, adds 1 to the level counter to progress the user
-function nextLevel(){
-    gameLevel++;
-    managelevel();
-}
-
-// function that handles the behaviour for each level
-function managelevel(){
-    if(gameLevel == 1){
-        // add first level behaviour
-
-        //display layout sprites
-
-    } else if (gameLevel == 2){
-        // add second level behaviour
-        
-    } else if (gameLevel == 3){
-        // add third level behaviour
-        alert("you reached level 3")
-        
-    }
-        // note: only 3 for now
-}
-
-// function that displays the level for the user
-function displayLevel(){
-
-}
-
-function displayScore(){
-
-}
-
 ///////// GAME START
 
 // Initialise list of emails, both malicious and legitimate
@@ -127,8 +94,15 @@ const emailist = [
     path: '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html',
     category: 'legitimate',
     sender: 'no-reply@accounts.google.com',
-    receiver: 'user',
+    receiver: 'userpersonal',
     subject: 'Suspicious sign in attempt blocked'
+    },
+    { 
+    path: '/static/LegitimateEmails/2 Twitter.html',
+    category: 'legitimate',
+    sender: 'support@twitter.com',
+    receiver: 'delticore',
+    subject: 'Recent login detected'
     },
 
     ///////////////////////////////////////////////////////////////////
@@ -137,11 +111,55 @@ const emailist = [
     { 
     path: '/static/MaliciousEmails/1 Other Gmail Signin Attempt.html',
     category: 'malicious',
-    sender: 'no-reply@axedzla.accounts.google.com',
-    receiver: 'user',
+    sender: 'no-reply@ggl.hdfe.se',
+    receiver: 'userpersonal',
     subject: 'New sign-in notification'
     },
-                ]
+    { 
+    path: '/static/MaliciousEmails/2 COVID 19 SURVEY.html',
+    category: 'malicious',
+    sender: 'HR@deltlcore.com',
+    receiver: 'userwork',
+    subject: 'Important: COVID Survey'
+    },
+    { 
+    path: '/static/MaliciousEmails/3 Dropbox.html',
+    category: 'malicious',
+    sender: 'support@dropboxsupport.com',
+    receiver: 'userpersonal',
+    subject: 'New sign in on Dropbox'
+    },
+    { 
+    path: '/static/MaliciousEmails/4 EMAIL ISSUES.html',
+    category: 'malicious',
+    sender: 'support@deltecore.com',
+    receiver: 'userwork',
+    subject: 'Email issues, attention required!'
+    },
+    { 
+    path: '/static/MaliciousEmails/5 LinkedIn.html',
+    category: 'malicious',
+    sender: 'sup.li@nextbox.se',
+    receiver: 'delticore',
+    subject: 'Password reset request received'
+    },
+    { 
+    path: '/static/MaliciousEmails/6 Snapchat.html',
+    category: 'malicious',
+    sender: 'support@snapchat-emall.mobi',
+    receiver: 'userwork',
+    subject: 'Snapchat - Confirm your email address'
+    },
+    { 
+    path: '/static/MaliciousEmails/7 OUT OF DATE SYSTEM.html',
+    category: 'malicious',
+    sender: 'support@microsoftsecurity-alerts.com',
+    receiver: 'userwork',
+    subject: 'Microsoft - Critical update required'
+    },
+                
+
+]
 
 // array to store randomly chosen emails
 let randomized_emaillist = [];
@@ -171,20 +189,32 @@ function StartGame(){
     // displays the header
     document.getElementById("emailframe").style.visibility = "visible";
     document.getElementById("headeremail").style.visibility = "visible";
+    document.getElementById("btnMalicious").style.visibility = "visible";
+    document.getElementById("btnLegitimate").style.visibility = "visible";
 
-    // pick 10 random emails from the emaillist, and push them into the randomized email list.
-    for (let num = 0; num < 10; num++){
-        let emailnum = Math.floor(Math.random() * emailist.length);
+    // // pick 10 random emails from the emaillist, and push them into the randomized email list.
+    // for (let num = 0; num < 8; num++){
+    //     let emailnum = Math.floor(Math.random() * emailist.length);
         
-        // store email
-        let randomemail = emailist[emailnum];
+    //     // store email
+    //     let randomemail = emailist[emailnum];
 
-        // prevent duplicate emails being added to the list
-        if (!randomized_emaillist.includes(randomemail)){
-            randomized_emaillist.push(emailist[emailnum]);
-        } 
+    //     // prevent duplicate emails being added to the list
+    //     if (!randomized_emaillist.includes(randomemail.path)){
+    //         randomized_emaillist.push(emailist[emailnum]);
+    //     } 
         
-    }
+    // }
+
+    while (randomized_emaillist.length < 9) {
+        let emailnum = Math.floor(Math.random() * emailist.length); // generate a random index
+        
+        let randomemailitem = emailist[emailnum]; // get the item at that index
+      
+        if (!randomized_emaillist.includes(randomemailitem)) { // check if the item already exists in the randomitems array
+          randomized_emaillist.push(randomemailitem); // add the item to the randomitems array if it doesn't already exist
+        }
+      }
     
 
     // remove the start button and description when the iframe is loaded.//
@@ -218,8 +248,11 @@ function updateEmailHeader(){
     
     var receivername = randomized_emaillist[questionnum].receiver;
 
-    if(receivername === 'user'){
+    if(receivername === 'userwork'){
         document.getElementById("receiverid").textContent="To: " + nameofuser + "@delticore.com";
+    }
+    else if (receivername === 'userpersonal'){
+        document.getElementById("receiverid").textContent="To: " + nameofuser + "@gmail.com";
     }
     else{
         if (receivername === 'delticore'){
@@ -258,40 +291,6 @@ function showQuestion() {
 
     updateEmailHeader();
 }
-
-// function checkQuestion() {
-//     // check if the user's input matches with the question
-
-//     const correctanswer = randomized_emaillist[questionnum].category;
-
-//     window.alert(correctanswer);
-
-//     if (this.id === "btnMalicious" && correctanswer === "malicious"){
-//         // answer is malicious
-//         correctanswer++;
-
-//         // move to next question
-//         questionnum++;
-//     }
-//     else if (this.id === "btnLegitimate" && correctanswer === "legitimate"){
-//         // answer is legitimate
-//         correctanswer++;
-
-//         // move to next question
-//         questionnum++;
-//     }
-//     else{
-//         // the answer is incorrect
-//         incorrectanswernum++;
-
-//         // move to next question
-//         questionnum++;
-//     }
-
-
-// }
-    
-// BUTTON FUNCTIONS
 
 
 function btnMaliciousClick(){
