@@ -1,5 +1,13 @@
 /* style.css (CSS) */
 
+.bg1{
+  background-color: #9FADBD;
+}
+
+.font1{
+  font-family: 'Karla', sans-serif;
+}
+
 .headerlogo{
     float: left;
     height: 50px;
@@ -23,7 +31,96 @@
 
 }
 
-.computermonitor {
+.big-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.computermonitor1{
+  /*email headder gap */
+  --bs-gutter-x: 0rem;
+  /*email header gap */
+  --bs-gutter-y: 0;
+  position: relative;
+  top: 60px;
+  width: 1280px;
+  height: 720px;
+  /* padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: 10px;
+  margin-left: auto; */
+  box-shadow: 0 0 20px #000;
+  background-color: #ffffff;
+
+  overflow:hidden;
+}
+
+.score-box {
+    /*email headder gap */
+    --bs-gutter-x: 0rem;
+    /*email header gap */
+    --bs-gutter-y: 0;
+    position: relative;
+    top: 60px;
+    width: 300px;
+    height: auto;
+    margin-left: 10px;
+    /* padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: 0; */
+    box-shadow: 0 0 20px #000;
+    background-color: #ffffff;
+    border-radius: 12px;
+
+    overflow:hidden;
+}
+
+/* CREDIT: https://uiverse.io/krlozCJ/blue-dodo-17 */
+
+.buttonlegit {
+  border: none;
+  outline: none;
+  background-color: #41924B;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #87E293;
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.buttonlegit:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+.buttonmalicious {
+  border: none;
+  outline: none;
+  background-color: #9A3334;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #c56b6b;
+  font-size: 24px;
+}
+
+.buttonmalicious:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+/* ########################################### */
+
+/* .computermonitor {
     position: absolute;
     left: 50%;
     width: 1280px;
@@ -35,15 +132,64 @@
 
     overflow:hidden;
 
+} */
+
+
+
+.resultscreen{
+
+  position: relative;
+  top: 40px;
+  width: 100%;
+  height: 100%;
+
+  margin-top: 20px;
+  
+}
+
+.resultcard{
+  width: 18rem;
+  margin-top:20px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  flex: 1 0 300px;
+}
+
+.resultcards {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2px;
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+
+.restart.button {
+  display: relative;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 .center{
     margin: 0 auto;
-    margin-top: 20px; 
+    margin-top: 0px; 
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     padding: 10px; 
+
+}
+
+.tcenter{
+  margin: 0 auto;
+  margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
 
 }
 
@@ -56,6 +202,58 @@
   padding: 10px; 
   font-size: larger;
 
+}
+
+.tcenter{
+  margin: 0 auto;
+  margin-top: 50px; 
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
+
+}
+
+.bcenter{
+  margin: 0 auto;
+  margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px; 
+  font-size: larger;
+
+}
+
+.introlistcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: max-content;
+  margin: 0 auto;
+  
+}
+
+.introlistcontainer li {
+  list-style: none;
+  text-align: left;
+  margin-right: 18px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.introlistcontainer li i {
+  display: inline-block;
+  width: 40px; /* adjust width as needed */
+  margin-right: 35px; /* adjust margin as needed */
+  vertical-align: middle;
+  
 }
 
 .startgame-btn{
@@ -134,16 +332,354 @@
     margin: 10px;
 }
 
+
+
+
+
+
+.score-container {
+  position: relative;
+  display: flex;
+  max-width: 350px;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: #2C3E50;
+  box-shadow: 0 0 20px 10px #00ff00;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.scoreheader {
+  position: relative;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.scoretitle {
+  display: block;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  color: #fff
+}
+
+.streak-container {
+  margin-top: 10px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.streak-container span:first-child {
+  margin-top: 10px;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.streak-container span:last-child {
+  align-self: flex-end;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.streak-desc{
+  margin-bottom: 0;
+  white-space: nowrap;
+  font-size: 25px
+}
+
+.scorelists {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scorelist {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scorelist span {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background-color: rgba(255, 255, 255, 0.185);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.scorelist span svg {
+  height: 12px;
+  width: 12px;
+}
+
+.scorelist p {
+  display: block;
+  font-family: sans-serif;
+  text-align:center;
+  margin-bottom: 10px;
+}
+
+.pointcontainer {
+  position: relative;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  border-radius: 0;
+  border-top: 1px solid #fff;
+  background: transparent;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.pointtitle {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+.pointnumber1 {
+  display: block;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 3.5rem;
+}
+
+
 .choicebuttons {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 20px;
-
-    position: absolute; 
-    bottom: 0; 
+    position: absolute;  
     width: 100%;
+
+    top: 900px;
+    right: 140px;
+
 }
 
+.replay {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  position: absolute; 
+  bottom: 0; 
+  width: 100%;
+}
+
+.emailThumbnail{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* CREDIT TO https://yaroslavweb.github.io/Neon-Generator/ */
+
+.neoncurrentquestion {
+              animation: neonanim1 2s alternate-reverse infinite;
+              color: #FFFFFF;
+              font-family: Cursive;
+          }
+          @keyframes neonanim1 {
+            from {
+              text-shadow:
+                0 0 10px rgba(255, 255, 255, .7),
+                0 0 40px rgba(255, 255, 255, .7),
+                0 0 100px rgba(255, 255, 255, .7);
+            }
+            to {
+              text-shadow:
+                0 0 5px rgba(255, 255, 255, .7),
+                0 0 20px rgba(255, 255, 255, .7),
+                0 0 60px rgba(255, 255, 255, .7);
+            }
+          }
+            
+
+.neonmalicious {
+                animation: neonanim2 2s alternate-reverse infinite;
+                color: #FDCF58;
+                font-family: Cursive;
+            }
+          @keyframes neonanim2 {
+          from {
+            text-shadow:
+              0 0 29px rgba(253, 207, 88, .7),
+              0 0 59px rgba(253, 207, 88, .7),
+              0 0 119px rgba(253, 207, 88, .7);
+          }
+          to {
+            text-shadow:
+              0 0 24px rgba(253, 207, 88, .7),
+              0 0 39px rgba(253, 207, 88, .7),
+              0 0 79px rgba(253, 207, 88, .7);
+          }
+}
+
+.neonlegitimate {
+                animation: neonanim3 2s alternate-reverse infinite;
+                color: #FFFFFF;
+                font-family: Consolas;
+                font-size: 20px;
+            }
+          @keyframes neonanim3 {
+          from {
+            text-shadow:
+              0 0 10px rgba(255, 255, 255, .7),
+              0 0 40px rgba(255, 255, 255, .7),
+              0 0 100px rgba(255, 255, 255, .7);
+          }
+          to {
+            text-shadow:
+              0 0 5px rgba(255, 255, 255, .7),
+              0 0 20px rgba(255, 255, 255, .7),
+              0 0 60px rgba(255, 255, 255, .7);
+          }
+}
+
+/* ####################################### 
+ANIMISTA
+######################################### */
+ 
+.tracking-in-expand-fwd {
+	-webkit-animation: tracking-in-expand-fwd 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand-fwd 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-4-27 3:34:10
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand-fwd
+ * ----------------------------------------
+ */
+ @-webkit-keyframes tracking-in-expand-fwd {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px);
+            transform: translateZ(-700px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand-fwd {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px);
+            transform: translateZ(-700px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.tracking-out-contract {
+	-webkit-animation: tracking-out-contract 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) 3s both;
+	        animation: tracking-out-contract 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) 3s both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-4-27 3:35:56
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation tracking-out-contract
+ * ----------------------------------------
+ */
+ @-webkit-keyframes tracking-out-contract {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+}
+@keyframes tracking-out-contract {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ###################################################### */
 
 /*!
 * Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
@@ -261,7 +797,8 @@ hr {
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Karla', sans-serif;
+  /* font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
   font-weight: 700;
   line-height: 1.2;
 }
@@ -313,6 +850,8 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+
+  font-family: 'Karla', sans-serif;
 }
 
 abbr[title] {

@@ -5,7 +5,9 @@
 <html>
     <head>
         <title>Phishology</title> <!-- make a logo to replace this? -->
-
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
         <link rel="stylesheet" type="text/css" href="static/style.css">
 
         <!-- https://startbootstrap.com/theme/freelancer - parts of template used for design, MIT license-->
@@ -13,16 +15,26 @@
         <!-- favicon logo-->
         <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
         <!-- font awesome-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" type="text/css">
+
+        <!-- css animations-->
+        <link rel="stylesheet" href="animate.min.css">
+
 
         <!-- google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital@0;1&display=swap" rel="stylesheet">
+
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
 
-        <body id="page-top">
+        <body id="page-top" class="bg1">
+          
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
                 <div class="container">
@@ -41,15 +53,6 @@
                 </div>
             </nav>
 
-
-
-
-
-
-
-
-
-
         <h1>Phishology</h1>
         
         <!-- The game will be rendered here 
@@ -63,81 +66,214 @@
                    
             
         </div>
+        <!-- here the user will be told how many questions they got right/wrong -->
+        <div class="resultscreen" id="resultsDiv" style="display: none;">
+          <h2 class="center" id="resultTitle">You have completed your training.</h2>
+          <h5 class="center" id="resultDesc">You got <span id="correctNo"></span> answers correct, and <span id="incorrectNo"></span> answers incorrect.
+          <br> see below for a summary of your results.</h5>
+          <div class="center">
+            <button id="btnRestart" class="btn btn-secondary btn-xl enabled" onclick="restartGame();">Click here to play again</button>
+          </div>
 
-        <!-- start of computer monitor screen -->
+          <!-- implement bootstrap cards here which provide a thumbnail of each email, and a description summarising the indicators of each email. -->
+          <div class="resultcards" id="answersummary" >
+          </div>
+        </div>
 
-        
-        
-        <div class ="computermonitor">
+      <div class="big-container">
+          <!-- class=computermonitor-->
+          <div id="monitor1" class ="computermonitor1">                                                                                                                                                                                    
 
-            <h2 class="center" id="Title">Welcome to Phishology</h2> 
+              <h2 class="tcenter" id="Title">Welcome to Phishology</h2> 
+              <p id="gamedescription" class="pcenter">
+                
+                You are an email support specialist working at an organisation named <b>Delticore Industries.</b> <br><br>
+                <i>You will be tasked with managing emails sent to: <br></p>
+                  
+                  <div id="introlist" class="introlistcontainer"> 
+                    <ul class="fa-ul">
+                      <li><span class="fa-li"><i class="fa-solid fa-building"></i></span>Delticore's contact address <b>(contact@delticore.com)</b></li>
+                      <li><span class="fa-li"><i class="fas fa-briefcase"></i></span>Your work related email <b>(<span id="workname"></span>@delticore.com)</b></li>
+                      <li><span class="fa-li"><i class="fas fa-laptop"></i></span>Your personal email <b>(<span id="persname"></span>@gmail.com)</b></li>
+                    </ul>
+                  </div> 
 
-            <p id="gamedescription" class="pcenter">
+
+                <p id="briefing" class="bcenter">Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br></p>
+
+                <div id="userinputcontainer" class="center">
+                  <span class="font1"><b>Please enter your name</b></span><br>
+                  <input class="center" type="text" id="yourname" name="username" maxlength="15" onkeypress="spacecheck(event)">
+          
+                  <br><br>
+                  <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
+                </div>
               
-              Welcome, you are a email support specialist working at an organisation named <b>Delticore Industries.</b> <br><br>
-              You will be tasked with managing emails sent to: <br>
-              your organisation inbox <b>(contact@delticore.com)</b><br>
-              your work inbox <b>(yourname@delticore.com)</b><br>
-              and your personal inbox <b>(yourname@gmail.com)</b><br><br>
 
-              Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br>
+              <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame();getUsername()" >START GAME</button>
 
-                    <b>Please enter your name</b><br>
-                    <input class="center" type="text" id="yourname" name="username"><b>@delticore.com</b>
-            
-                    <br><br>
-                    <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
-            
-            </p>
+              <!-- ##########  email header  ##########-->
 
-            <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame();getUsername()" >START GAME</button>
-
-            <!-- ##########  email header  ##########-->
-
-            <div id="headeremail" class="container-fluid mx-0" style="visibility: hidden;">
-                <div class="row">
-                  <div class="col">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div>
-                            <h6 id="senderid" class="card-subtitle mb-2 text-muted"></h6>
-                            <h6 id="receiverid" class="card-subtitle mb-2 text-muted">To: You</h6>
-                            <h6 id="subjectid" class="card-title"></h6>
-                          </div>
-                          <div>
-                            <button id="replybtn" class="btn btn-secondary">Reply</button>
-                            <button id="fwdbtn" class="btn btn-secondary">Forward</button>
+              <div id="headeremail" class="container-fluid mx-0" style="visibility: hidden;">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h6 id="senderid" class="card-subtitle mb-2 text-muted"></h6>
+                              <h6 id="receiverid" class="card-subtitle mb-2 text-muted">To: You</h6>
+                              <h6 id="subjectid" class="card-title"></h6>
+                            </div>
+                            <div>
+                              <button id="replybtn" class="btn btn-secondary">Reply</button>
+                              <button id="fwdbtn" class="btn btn-secondary">Forward</button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              
+              <iframe class="iframe" id="emailframe"
+                  src=""
+                  style="border: 0px solid #000; ">
+              </iframe>
+
+          </div> 
+
+        <!-- https://blog.prototypr.io/research-in-game-streaks-92bfb229e776-->
+        <!-- TEMPLATE CREDIT: https://uiverse.io/Yaya12085/serious-eagle-83 -->
+        <div class="score-box" id="scorebox">
+          
+          <div class="score-container">
+            <div class="scoreheader">
+              <p class="scoretitle">
+                Streak
+              </p>
+              <div class="streak-container">
+                <p id="streaknumber">0</p>
               </div>
-            
-            <iframe class="iframe" id="emailframe"
-                src=""
-                style="border: 0px solid #000; visibility: hidden;">
-            </iframe>
+              <p id="streakdesc" class="streak-desc">
+                <!-- invisible chracter here-->
+                &#8205;
+              </p>
+            </div>
+            <div>
+              <ul class="scorelists">
+                <li class="scorelist">
+                  <span id="circle1">
 
-            
+                  </span>
+                  <p id ="q1">
+                    Question 1.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle2">
 
-            <!-- here the user will be told how many questions they got right/wrong -->
-            <h2 id="scoreresult" style="display:none;"></h2>
+                  </span>
+                  <p id ="q2">
+                    Question 2.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle3">
 
-        </div> 
+                  </span>
+                  <p id ="q3">
+                    Question 3.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle4">
 
-        <!-- end of computer monitor screen -->
+                  </span>
+                  <p id ="q4">
+                    Question 4.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle5">
 
-        <div class="choicebuttons">
+                  </span>
+                  <p id ="q5">
+                    Question 5.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle6">
 
-            <button id="btnMalicious" class="btn btn-danger btn-xl enabled" onclick="btnMaliciousClick();getUsername()" style="visibility: hidden;">Malicious</button>
-            <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()" style="visibility: hidden;">Legitimate</button>
-            <h5 id="questionnumber"></h5>
+                  </span>
+                  <p id ="q6">
+                    Question 6.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle7">
+
+                  </span>
+                  <p id ="q7">
+                    Question 7.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle8">
+
+                  </span>
+                  <p id ="q8">
+                    Question 8.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle9">
+
+                  </span>
+                  <p id ="q9">
+                    Question 9.
+                  </p>
+                </li>
+                <li class="scorelist">
+                  <span id="circle10">
+
+                  </span>
+                  <p id ="q10">
+                    Question 10.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="pointcontainer">
+              <p class="pointtitle">
+                Points
+              </p>
+              <p id="pointnumber" class="pointnumber1">
+                0
+              </p>
+            </div>
+          </div>
+
 
 
         </div>
+         
+      </div> <!-- end div of bigcontainer--> 
+
+        <div id="chbuttons" class="choicebuttons" style="display: none;">
+
+          <button id="btnMalicious" class="buttonmalicious" onclick="btnMaliciousClick();getUsername()">Malicious</button>
+          <button id="btnLegitimate" class="buttonlegit" onclick="btnLegitimateClick();getUsername()">Legitimate</button>
+          <!--<button id="btnMalicious" class="btn btn-danger btn-xl enabled" onclick="btnMaliciousClick();getUsername()">Malicious</button>
+          <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()">Legitimate</button>-->
+
+
+          <h5 id="questionnumber"></h5>
+
+        </div>
+      
+
+        <!-- end of computer monitor screen -->
 
         
         
