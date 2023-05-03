@@ -57,8 +57,8 @@
             <!-- implement cards that show the different knowldege base options -->
 
             <div id="knowledgetitles" class="knowledge-title">
-            <h2 class="center" id="knowledgeTitle">Knowledge Base</h2>
-            <h5 class="center" id="knowledgeDesc">Here you can find various resources that help your improve your phishing awareness.</h5>
+            <h1 class="center" id="knowledgeTitle">Knowledge Base</h1>
+            <h4 class="center" id="knowledgeDesc">Here you can find various resources that help your improve your phishing awareness.</h4>
             </div>
 
             <div class="quiz-container" id="quizcontainer" style="display: none;">
@@ -81,7 +81,7 @@
                 
             
                 <div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-6 mb-4">
                         <div class="card h-100">
                             <div class="card-body">
@@ -131,7 +131,110 @@
                             </div>
                             </div>
                     </div>
-                </div>
+                </div> -->
+
+                <div class="container overflow-hidden">
+                    <div class="row gy-3">
+                      <div class="col-6">
+                        <div class="card h-100 cardshadow">
+                            <div class="card-body">
+                            <h4 class="card-title">What is phishing?</h4><br>
+                            <p class="card-text">
+                                Phishing is a type of social engineering attack that uses email, social media, 
+                                and phone communications to deceive targets into providing their sensitive information.
+                                Attackers can achieve this by posing as legitimate organisations or individuals to gain the trust of targets. 
+                                Moreover, there are two main types of phishing attacks to look out for:
+                            </p>
+                                <h5 class="card-title">Deceptive phishing</h5>
+                                    <p class="card-text">
+                                    This is the most common type of phishing. Deceptive phishing can be indentified as spam emails being sent out to
+                                    millions of email addresses, and can accurately mimic trusted individuals such as a co-worker, popular organisations such as Google, or financial institutions such as 
+                                    NatWest. Furthermore, attackers will use techniques to manipulate your emotions, such as creating a sense of urgency or fear 
+                                    to increase the chances of you interacting wih an email.
+                                    </p>
+                                <h5 class="card-title">Spear phishing</h5>
+                                    <p class="card-text">
+                                    This type of phishing attack is similar to Deceptive Phishing, however instead of sending many emails
+                                    to a large amount of random targets, this attack targets individuals. For example, if there is a high-ranking individual
+                                    in an organisation, they are more likely to have access to sensitive information within that organisation. Therefore, they
+                                    are more likely to be targeted. Attackers will research an individual and design an method of attack specifically for that
+                                    individual, which can include the attacker posing as someone that the individual trusts.
+                                    </p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="card h-100 cardshadow">
+                            <div class="card-body">
+                            <h4 class="card-title">What are the indicators of phishing?</h5>
+                            <p class="card-text">
+                                <div class="indicatorlist">
+                                    <ul class="fa-ul">
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-circle-xmark"></i></span><span class="card-text"><b>The sender's email address doesn't match an individual or organisation's email.</b><br>
+                                                                                                                                            You should always check the sender email for any differences.</span></li>
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-triangle-exclamation"></i></span><span class="card-text"><b>The email subject or content creates a sense of urgency or fear.</b><br> Such as: 
+                                                                                                                                            <i>Critical Alert! Someone has logged into your account!</i></span></li>
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-lock"></i></span><span class="card-text"><b>The email is requesting sensitive / personal information from you</b>, this is very suspicious behaviour.</span></li>
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-spell-check"></i></span><span class="card-text"><b>Grammar errors within the email's content.</b><br> Especially when the email is sent by an organisation.</span></li>
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-link-slash"></i></span><span class="card-text"><b>The email has suspicious links.</b><br> You should always hover over links and check the destination before clicking on them.
+                                                                                                                                                                Furthermore, malicious links can be hidden behind legitimate URL shorteners such as <i>tinyurl.com</i>,<br>therefore you should be careful.</span></li>
+                                        <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-paperclip"></i></span><span class="card-text"><b>The email has suspicious attachments.</b><br> You should only open attachments from people you trust. Furthermore, common file types used in phishing to look out for are:<br>
+                                                                                                                                                                 .EXE,   .PDF,   .XLS,  .DOC,   and ZIP files.</span></li>
+
+                                    </ul>
+                                </div>
+
+                            </p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="card mb-4 cardshadow">
+                            <div class="card-body">
+                            <h4 class="card-title">How can you prevent phishing?</h5>
+                            <p class="card-text">There are many steps you can take to protect yourself from phishing attacks</p>
+                        
+                                
+                                <ul class="fa-ul">
+                                    <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-users"></i></span><span class="card-text"><b>Enhance your account security</b><br>
+                                                                                                                                        Ensure that your accounts have complex passwords to reduce the risk of an attacker guessing your password, 
+                                                                                                                                        and security mechanisms such as 2 Factor Authentication (2FA) to prevent attackers from gaining access to your accounts.<br></span></li>
+                                    <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-display"></i></span><span class="card-text"><b>Ensure that your systems and software are up to date.</b><br> 
+                                                                                                                                        This will prevent attackers from taking advantage of any security vunerabilites that outdated software may have.</span></li>
+                                    <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-virus-slash"></i></span><span class="card-text"><b>Install security systems</b><br>
+                                                                                                                                                    Installing security systems such as Anti-Virus and Firewall software will protect yourself from malicious websites and files that are linked
+                                                                                                                                                    to phishing attacks.</span></li>
+                                    <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-crown"></i></span><span class="card-text"><b>Stay Aware.</b><br> Mostly importantly, stay constantly vigilant of the indicators of phishing,
+                                                                                                                                                            as attacks are getting more and more sophisticated every day. </span></li>
+
+                                </ul>
+                            </p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="card mb-4 cardshadow">
+                            <div class="card-body">
+                            <h4 class="card-title">What to do if you've been phished?</h5><br>
+                            <p class="card-text">
+                                If you believe you have been phished, there are some main steps you can take to minimise the damage:
+                            </p>
+                            <ul class="fa-ul">
+                                <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-plug-circle-xmark"></i></span><span class="card-text"><b>Disconnect any possible infected device from the internet. </b><br>
+                                                                                                                                        If a device has been infected as the result of a phishing attack, you must disconnected the device to prevent any malware from propagating across your network.   </span></li>
+                                <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-user-lock"></i></span><span class="card-text"><b>Change all of your account passwords</b><br>
+                                                                                                                                    Ensure that your passwords are changed to prevent anymore malicious activity from taking place.<br></span></li>
+                                <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-shield-virus"></i></span><span class="card-text"><b>Scan for any malicious files using your anti-virus software.</b><br> 
+                                                                                                                                   To prevent an infection from doing more damage, run a scan to find any malicious files and remove them.</span></li>
+                                <li style="margin: 25px 0;"><span class="fa-li"><i class="fa-solid fa-phone-volume"></i></span><span class="card-text"><b>Contact your service providers</b><br>
+                                                                                                                                             If your device/account has been compromised, you must contact the provider for that account. Which could be your work's IT department, or your Bank. </span></li><br>
+
+                            </ul>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             
             </div>
 

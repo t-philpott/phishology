@@ -63,12 +63,12 @@
         <!-- here the user will be told how many questions they got right/wrong -->
         <div class="resultscreen" id="resultsDiv" style="display: none;">
           <div class="resultdetails" id="titledescresult"> 
-            <h2 class="center" id="resultTitle">You have completed your training.</h2>
-            <h5 class="center" id="resultDesc">You got <span id="correctNo"></span> answers correct, and <span id="incorrectNo"></span> answers incorrect.</h5>
-              <h5 class="center" id="scoreDesc"><b>Score:</b> <span id="scoreNo"></span></h5>
-              <h5 class="center" id="scoreDesc"><b>Highest Streak:</b> <span id="highestStreakNo"></span></h5>
+            <h1 class="center" id="resultTitle">You have completed your training.</h1>
+            <h3 class="center" id="resultDesc">You got <span id="correctNo"></span> answers correct, and <span id="incorrectNo"></span> answers incorrect.</h3>
+              <h3 class="center" id="scoreDesc"><b>Score:</b> <span id="scoreNo"></span></h3>
+              <h3 class="center" id="scoreDesc"><b>Highest Streak:</b> <span id="highestStreakNo"></span></h3>
             <div class="center">
-              <button id="btnRestart" class="btn btn-secondary btn-xl enabled" onclick="restartGame();">Click here to play again</button>
+              <button id="btnRestart" class="btn btn-secondary btn-xl enabled cardshadow" onclick="restartGame();">Click here to play again</button>
             </div>
           </div>
           
@@ -105,7 +105,7 @@
                   <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
                 </div>
               
-              <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="checkempty();getUsername()" >
+              <button id="btnStartGame" class="btn btn-startgame btn-xl enabled cardshadow" text-align="center" vertical-align="middle" line-height="90px" onclick="checkempty();getUsername()" >
                 START GAME</button>
 
               <!-- ##########  email header  ##########-->

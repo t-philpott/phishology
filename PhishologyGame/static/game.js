@@ -353,15 +353,10 @@ function checkempty() {
         document.getElementById("emptynotify").style.display = "none";
     }
  }
+
  ///////////////////////////////////////////////////////
  
-// note: this function takes place inside the iframe, not the parent index.html page.
 function StartGame(){
-
-    // initalise start button and description so it can be removed upon starting
-    const startgamebutton = document.getElementById('btnStartGame');
-    const startgametitle = document.getElementById('Title');
-    const startgamedescription = document.getElementById('gamedescription');
 
     // stores username
     nameofuser = document.getElementById('yourname').value;
@@ -371,20 +366,7 @@ function StartGame(){
     document.getElementById("headeremail").style.visibility = "visible";
     document.getElementById("chbuttons").style.display = "block";
 
-    // // pick 10 random emails from the emaillist, and push them into the randomized email list.
-    // for (let num = 0; num < 8; num++){
-    //     let emailnum = Math.floor(Math.random() * emailist.length);
-        
-    //     // store email
-    //     let randomemail = emailist[emailnum];
-
-    //     // prevent duplicate emails being added to the list
-    //     if (!randomized_emaillist.includes(randomemail.path)){
-    //         randomized_emaillist.push(emailist[emailnum]);
-    //     } 
-        
-    // }
-
+    // randomly choose 10 emails from the emailist, and push it into randomized_emailist.
     while (randomized_emaillist.length < 10) {
         let emailnum = Math.floor(Math.random() * emailist.length); // generate a random index
         
@@ -394,12 +376,6 @@ function StartGame(){
           randomized_emaillist.push(randomemailitem); // add the item to the randomitems array if it doesn't already exist
         }
       }
-    
-
-    // remove the start button and description when the iframe is loaded.//
-    // startgamebutton.remove();
-    // startgametitle.remove();
-    // startgamedescription.remove();
 
     document.getElementById("btnStartGame").style.display = "none";
     document.getElementById("Title").style.display = "none";
@@ -408,21 +384,13 @@ function StartGame(){
     document.getElementById("introlist").style.display = "none";
     document.getElementById("userinputcontainer").style.display = "none";
 
-    
-    //nameofuser.remove();
-    //////////////////////////////////////////////////////////////////////
-
     //get iframe
     let iframe = document.getElementsByTagName('iframe')[0];
-
     // show the first email, and update the email header to provide relevant
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
 
     // update email header
     updateEmailHeader();
-
-    // show question number upon starting the game
-    //document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
     
     var currentquestiontext = document.getElementById("q"+ (questionnum + 1))
     currentquestiontext.classList.add("neoncurrentquestion");
@@ -472,7 +440,8 @@ function updateUsername(iframe1, nameofuser){
         }
 }
 ///////////////////////////////////////////////
-// displays the next question from the questionnum
+
+// displays the next question
 function showQuestion() {
     
     if (questionnum < 10){
@@ -488,15 +457,10 @@ function showQuestion() {
         currentquestiontext.classList.add("neoncurrentquestion");
     }
     else{
-        //window.alert("Game finished. You got " + gameScoreCorrect + " questions correct, and " + gameScoreIncorrect + " questions incorrect.")
-    // hides all
+        //game finished
     document.getElementById("emailframe").style.visibility = "hidden";
     document.getElementById("headeremail").style.visibility = "hidden";
-    
     document.getElementById("chbuttons").style.display = "block";
-    // document.getElementById("btnMalicious").style.visibility = "hidden";
-    // document.getElementById("btnLegitimate").style.visibility = "hidden";
-    // document.getElementById("questionnumber").style.visibility = "hidden";
 
     showResults();
 
@@ -738,9 +702,6 @@ function btnMaliciousClick(){
     // store correct answer
     const correctanswer = randomized_emaillist[questionnum].category;
     
-    // prints the correct answer
-    //window.alert("the correct answer is " + correctanswer);
-
     if (correctanswer === "malicious"){
         // answer is malicious
         gameScoreCorrect++;
@@ -755,10 +716,7 @@ function btnMaliciousClick(){
         // // remove email from list to prevent it from being displayed again.
         answered_questions.push(randomized_emaillist[questionnum]);
         answered_questions[questionnum].usersanswer = "malicious";
-        console.log(answered_questions);
-        // randomized_emaillist.splice(randomized_emaillist[questionnum], 1)
-        // console.log(randomized_emaillist)
-        // console.log(answered_questions)
+        //console.log(answered_questions);
 
 
         // changes the circle representing the current question to green.
@@ -770,8 +728,6 @@ function btnMaliciousClick(){
         showQuestion();
         checkStreak();
 
-        // update question number
-        //document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
     }
     else{
         // answer is legitimate
@@ -795,8 +751,6 @@ function btnMaliciousClick(){
         questionnum++;
         showQuestion();
 
-        // update question number
-        //document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) + "/10";
     }
 
   }
@@ -805,9 +759,6 @@ function btnMaliciousClick(){
 
     // store correct answer
     const correctanswer = randomized_emaillist[questionnum].category;
-    
-    // prints the correct answer
-    //window.alert("the correct answer is " + correctanswer);
 
     if (correctanswer === "legitimate"){
         // answer is legitimate
@@ -822,7 +773,6 @@ function btnMaliciousClick(){
 
         answered_questions.push(randomized_emaillist[questionnum]);
         answered_questions[questionnum].usersanswer = "legitimate";
-        console.log(answered_questions);
 
         let circlenumber = questionnum+1;
         document.getElementById("circle"+circlenumber).style.backgroundColor = "green";
@@ -831,8 +781,6 @@ function btnMaliciousClick(){
         questionnum++;
         showQuestion();
 
-        // update question number
-        //document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) +"/10";
     }
     else{
         // answer is malicious
@@ -847,7 +795,6 @@ function btnMaliciousClick(){
 
         answered_questions.push(randomized_emaillist[questionnum]);
         answered_questions[questionnum].usersanswer = "legitimate";
-        console.log(answered_questions);
 
         let circlenumber = questionnum+1;
         document.getElementById("circle"+circlenumber).style.backgroundColor = "red";
@@ -856,45 +803,6 @@ function btnMaliciousClick(){
         questionnum++;
         showQuestion();
         
-        // update question number
-        //document.getElementById("questionnumber").textContent="Question " + (questionnum + 1) +"/10";
     }
 
-
-    
-    
-    //email header information
-    //document.getElementById('senderid').innerHTML = 'senders email';
-    //document.getElementById('receiverid').innerHTML = 'user email';
-    //document.getElementById('subjectid').innerHTML = 'subject';
-    /////////////////////////////////////////////////////////////////
-
-    
-
-    //let iframe = document.getElementsByTagName('iframe')[0];
-
-    //iframe.setAttribute('src', '/static/LegitimateEmails/2 Twitter.html');
-
-    //document.getElementById("emailframe").contentWindow.document.body.innerHTML = "/static/START.html";
-
   }
-
-
-// END OF BUTTON SECTION
-
-
-
-// SAVE DETAILS SECTION
-
-// note: when a user has completed the game, the following information could be used to determine the user's score.
-
-// - the score
-// - which levels they got correct / incorrect
-// - whether there was a distraction on the level
-// - how quickly they answered the question
-// - 
-//
-//
-//
-//
-

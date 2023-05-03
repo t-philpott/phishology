@@ -142,8 +142,12 @@
   margin-right: 400px;
   margin-left: 400px;
   justify-content: center;
-  background-color: #c8cbcf;
-  border-radius: 10px;
+  /*background-color: #c8cbcf;*/
+  /*border-radius: 10px;*/
+
+  position: relative;
+  color: white;
+  text-shadow: 1px 1px 5px #000000;
 }
 
 .resultscreen{
@@ -513,6 +517,7 @@
 .card-text {
   font-size: 20px;
   line-height: 1.5;
+  font-family: 'Karla', sans-serif;
 }
 
 /* LEADERBOARD.HTML STYLING BELOW */
@@ -536,15 +541,18 @@
 .knowledge-title{
   position: relative;
   top: 125px;
+  color: white;
+  text-shadow: 1px 1px 5px #000000;
 }
 
 .knowledgecard-container{
   position: relative;
   top: 150px;
-  width: 1580px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   justify-content: center;
-  background-color: #c8cbcf;
+  /* background-color: #c8cbcf; */
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -561,9 +569,18 @@
 }
 
 
+.indicatorlist {
+  display: flex;
+  align-items: left;  
+  font-size: 20px;
+  justify-content: left;
+  margin-right: 20px;
 
+}
 
-
+.cardshadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 
 
