@@ -3,30 +3,25 @@
 
 
 <html>
+
+    <!-- https://startbootstrap.com/theme/freelancer - credit for navigation bar, MIT license-->
+
     <head>
-        <title>Phishology</title> <!-- make a logo to replace this? -->
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Phishology</title>
         
         <link rel="stylesheet" type="text/css" href="static/style.css">
 
-        <!-- https://startbootstrap.com/theme/freelancer - parts of template used for design, MIT license-->
-
         <!-- favicon logo-->
         <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        
         <!-- font awesome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" type="text/css">
-
-        <!-- css animations-->
-        <link rel="stylesheet" href="animate.min.css">
-
 
         <!-- google fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
+    
         <link href="https://fonts.googleapis.com/css2?family=Karla:ital@0;1&display=swap" rel="stylesheet">
-
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     </head>
@@ -38,16 +33,15 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
                 <div class="container">
-                    <a class="navbar-brand" href="#page-top"><img class="headerlogo" src="static/assets/logodarkblue.png">Phishology</a>
+                    <a class="navbar-brand" href="/"><img class="headerlogo" src="static/assets/logodarkblue.png">Phishology</a>
                     <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         Menu
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#testmode">Test Mode</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#quizmode">Quiz Mode</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Phishology Game</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/knowledge">Knowledge Base</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,14 +62,17 @@
         </div>
         <!-- here the user will be told how many questions they got right/wrong -->
         <div class="resultscreen" id="resultsDiv" style="display: none;">
-          <h2 class="center" id="resultTitle">You have completed your training.</h2>
-          <h5 class="center" id="resultDesc">You got <span id="correctNo"></span> answers correct, and <span id="incorrectNo"></span> answers incorrect.
-          <br> see below for a summary of your results.</h5>
-          <div class="center">
-            <button id="btnRestart" class="btn btn-secondary btn-xl enabled" onclick="restartGame();">Click here to play again</button>
+          <div class="resultdetails" id="titledescresult"> 
+            <h2 class="center" id="resultTitle">You have completed your training.</h2>
+            <h5 class="center" id="resultDesc">You got <span id="correctNo"></span> answers correct, and <span id="incorrectNo"></span> answers incorrect.</h5>
+              <h5 class="center" id="scoreDesc"><b>Score:</b> <span id="scoreNo"></span></h5>
+              <h5 class="center" id="scoreDesc"><b>Highest Streak:</b> <span id="highestStreakNo"></span></h5>
+            <div class="center">
+              <button id="btnRestart" class="btn btn-secondary btn-xl enabled" onclick="restartGame();">Click here to play again</button>
+            </div>
           </div>
+          
 
-          <!-- implement bootstrap cards here which provide a thumbnail of each email, and a description summarising the indicators of each email. -->
           <div class="resultcards" id="answersummary" >
           </div>
         </div>
@@ -87,30 +84,29 @@
               <h2 class="tcenter" id="Title">Welcome to Phishology</h2> 
               <p id="gamedescription" class="pcenter">
                 
-                You are an email support specialist working at an organisation named <b>Delticore Industries.</b> <br><br>
-                <i>You will be tasked with managing emails sent to: <br></p>
+                You are an email support specialist working at a fictional organisation named <b>Delticore Industries.</b> <br><br>
+                <i>You will be tasked with managing emails sent to: <br></p> <!-- add end i tag here to make header normal--></i>
                   
-                  <div id="introlist" class="introlistcontainer"> 
-                    <ul class="fa-ul">
-                      <li><span class="fa-li"><i class="fa-solid fa-building"></i></span>Delticore's contact address <b>(contact@delticore.com)</b></li>
-                      <li><span class="fa-li"><i class="fas fa-briefcase"></i></span>Your work related email <b>(<span id="workname"></span>@delticore.com)</b></li>
-                      <li><span class="fa-li"><i class="fas fa-laptop"></i></span>Your personal email <b>(<span id="persname"></span>@gmail.com)</b></li>
-                    </ul>
-                  </div> 
-
-
+                <div id="introlist" class="introlistcontainer"> 
+                  <ul class="fa-ul">
+                    <li><span class="fa-li"><i class="fa-solid fa-building"></i></span>Delticore's contact address <b>(contact@delticore.com)</b></li>
+                    <li><span class="fa-li"><i class="fas fa-briefcase"></i></span>Your work related email <b>(<span id="workname"></span>@delticore.com)</b></li>
+                    <li><span class="fa-li"><i class="fas fa-laptop"></i></span>Your personal email <b>(<span id="persname"></span>@gmail.com)</b></li>
+                  </ul>
+                </div> 
                 <p id="briefing" class="bcenter">Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br></p>
-
+               
                 <div id="userinputcontainer" class="center">
                   <span class="font1"><b>Please enter your name</b></span><br>
                   <input class="center" type="text" id="yourname" name="username" maxlength="15" onkeypress="spacecheck(event)">
+                  <span id="emptynotify" style="display: none; color:rgb(122, 22, 22)">The username cannot be empty!</span>
           
-                  <br><br>
+                  <br>
                   <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
                 </div>
               
-
-              <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="StartGame();getUsername()" >START GAME</button>
+              <button id="btnStartGame" class="btn btn-startgame btn-xl enabled" text-align="center" vertical-align="middle" line-height="90px" onclick="checkempty();getUsername()" >
+                START GAME</button>
 
               <!-- ##########  email header  ##########-->
 
@@ -121,9 +117,9 @@
                         <div class="card-body">
                           <div class="d-flex justify-content-between">
                             <div>
-                              <h6 id="senderid" class="card-subtitle mb-2 text-muted"></h6>
-                              <h6 id="receiverid" class="card-subtitle mb-2 text-muted">To: You</h6>
-                              <h6 id="subjectid" class="card-title"></h6>
+                              <h6 id="senderid" class="card-subtitle mb-2 text-muted fontemailheader"></h6>
+                              <h6 id="receiverid" class="card-subtitle mb-2 text-muted fontemailheader"></h6>
+                              <h6 id="subjectid" class="card-title fontemailheader"></h6>
                             </div>
                             <div>
                               <button id="replybtn" class="btn btn-secondary">Reply</button>
@@ -268,7 +264,7 @@
           <button id="btnLegitimate" class="btn btn-success btn-xl enabled" onclick="btnLegitimateClick();getUsername()">Legitimate</button>-->
 
 
-          <h5 id="questionnumber"></h5>
+          <!--<h5 id="questionnumber"></h5>-->
 
         </div>
       

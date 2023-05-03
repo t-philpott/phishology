@@ -153,7 +153,7 @@
 	</tr>
 	<tr style="border: none; margin: 0px; padding: 0px;" valign="middle">
 	<td style="border: none; margin: 0px; padding: 0px; width: 6.25%;" valign="middle" width="6.25%">&nbsp;</td>
-	<td style="border: none; margin: 0px; padding: 0px; font-family: Circular,'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight: 400; text-decoration: none; letter-spacing: 0.15px; color: #88898c; font-size: 11px; line-height: 1.65em; text-align: initial;" align="initial" valign="middle">Get Spotify for <a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">iPhone</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="FAKEMALICIOUSLINK" target="_blank" rel="noopener">iPad</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">Android</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">Other</a></td>
+	<td style="border: none; margin: 0px; padding: 0px; font-family: Circular,'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight: 400; text-decoration: none; letter-spacing: 0.15px; color: #88898c; font-size: 11px; line-height: 1.65em; text-align: initial;" align="initial" valign="middle">Get Spotify for <a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">iPhone</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">iPad</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">Android</a><span style="border-top: none; border-bottom: none; padding: 0px; width: 1px; border-left: 1px solid #c3c3c3; border-right: 1px solid transparent; display: inline-block; margin: 0px 7px;">&nbsp;</span><a style="border: none; margin: 0px; padding: 0px; text-decoration: none; display: inline-block; color: #6d6d6d; font-weight: bold;" href="javascript:void(0)" target="_blank" rel="noopener">Other</a></td>
 	<td style="border: none; margin: 0px; padding: 0px; width: 6.25%;" valign="middle" width="6.25%">&nbsp;</td>
 	</tr>
 	<tr style="border: none; margin: 0px; padding: 0px; height: 12px;" valign="middle">
@@ -212,10 +212,21 @@
 						{
 							name: 'offset',
 							options: {
-								offset: [20, -90] // Adjust the position of the tooltip: [x, y]
-							}
-						}
-					]
+								offset: [0, -90] // Adjust the position of the tooltip: [x, y]
+							},
+						},
+						{
+							name: 'arrow',
+							options: {
+								element: '.tooltip-arrow',
+								enabled: true,
+								fn: (data) => {
+									data.arrowElement.style.display = 'none';
+								},
+							},
+						},
+					],
+					arrow: false
 				};
 			}
 			}); 
