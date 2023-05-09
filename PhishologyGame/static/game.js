@@ -1,63 +1,4 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
-
-    };
-
-    // Shrink the navbar 
-    navbarShrink();
-
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
-
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
-});
-
-
-//////////////////////////
-
 // phishology - game.js (JavaScript)
-
 
 ///////// GAME START
 
@@ -72,9 +13,9 @@ const emailist = [
     // LEGITIMATE //
     //////////////////////////////////////////////////////////////////
     { 
-    path: '/static/LegitimateEmails/1 Simple Gmail Signin Attempt.html',
+    path: '/static/LegitimateEmails/1Gogloo.html',
     category: 'legitimate',
-    sender: 'no-reply@accounts.google.com',
+    sender: 'no-reply@accounts.gogloo.com',
     receiver: 'userpersonal',
     subject: 'Suspicious sign in attempt blocked',
     title: 'Legitimate',
@@ -82,48 +23,48 @@ const emailist = [
     thumbnail: '/static/LegitimateEmails/thumbnails/1.png'
     },
     { 
-    path: '/static/LegitimateEmails/2 Twitter.html',
+    path: '/static/LegitimateEmails/2Chirper.html',
     category: 'legitimate',
-    sender: 'support@twitter.com',
+    sender: 'support@chirper.com',
     receiver: 'delticore',
-    subject: 'Recent login detected',
+    subject: 'Recent login detected on Chirper',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Twitter. As the sender email and link matches with the "Twitter.com" domain',
+    desc: 'The sender email and link matches with the "Chirper.com" sender email domain',
     thumbnail: '/static/LegitimateEmails/thumbnails/2.png'
     },
     { 
-    path: '/static/LegitimateEmails/3 Spotify.html',
+    path: '/static/LegitimateEmails/3Soundify.html',
     category: 'legitimate',
-    sender: 'support@spotify.com',
+    sender: 'support@soundify.com',
     receiver: 'userpersonal',
-    subject: 'New login on Spotify',
+    subject: 'New login on Soundify',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Spotify. As the sender email and link matches with the "Spotify.com" domain',
+    desc: 'The sender email and link matches with the "Soundify.com" sender email domain',
     thumbnail: '/static/LegitimateEmails/thumbnails/3.png'
     
     },
     { 
-    path: '/static/LegitimateEmails/4 Instagram.html',
+    path: '/static/LegitimateEmails/4Instaframe.html',
     category: 'legitimate',
-    sender: 'notifications@instagram.com',
+    sender: 'notifications@instaframe.com',
     receiver: 'userpersonal',
-    subject: 'Instagram notification',
+    subject: 'Instaframe Log-in notification',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Instagram. As the sender email and link matches with the "Instagram.com" domain.',
+    desc: 'The he sender email and link matches with the "Instaframe.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/4.png'
     },
     { 
-    path: '/static/LegitimateEmails/5 Blockchain.html',
+    path: '/static/LegitimateEmails/5Coinlink.html',
     category: 'legitimate',
-    sender: 'notify@blockchain.com',
+    sender: 'notify@coinlink.com',
     receiver: 'userpersonal',
-    subject: 'Blockchain - Download your Transaction History',
+    subject: 'Coinlink - Download your Transaction History',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Blockchain. As the sender email and links within the email matches with the "Blockchain.com" domain.',
+    desc: 'The sender email and links within the email matches with the "Coinlink.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/5.png'
     },
     { 
-    path: '/static/LegitimateEmails/6 Company party.html',
+    path: '/static/LegitimateEmails/6CompanyParty.html',
     category: 'legitimate',
     sender: 'john.carpenter@delticore.com',
     receiver: 'userwork',
@@ -133,43 +74,33 @@ const emailist = [
     thumbnail: '/static/LegitimateEmails/thumbnails/6.png'
     },
     { 
-    path: '/static/LegitimateEmails/7 000WebHost.html',
+    path: '/static/LegitimateEmails/8Docubox.html',
     category: 'legitimate',
-    sender: 'no-reply@000webhost.com',
+    sender: 'no-reply@docubox.com',
     receiver: 'userwork',
-    subject: '000WebHost Website limit reached',
+    subject: 'We are improving your Docubox experience',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from 000WebHost. As the sender email and links within the email matches the "000WebHost.com" domain.',
-    thumbnail: '/static/LegitimateEmails/thumbnails/7.png'
-    },
-    { 
-    path: '/static/LegitimateEmails/8 Dropbox.html',
-    category: 'legitimate',
-    sender: 'no-reply@dropbox.com',
-    receiver: 'userwork',
-    subject: 'We are improving your Dropbox experience',
-    title: 'Legitimate',
-    desc: 'This is a legitimate Dropbox email. As the sender email and the links within the email the “Dropbox.com" domain.',
+    desc: 'The sender email and the links within the email the "Docubox.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/8.png'
     },
     { 
-    path: '/static/LegitimateEmails/9 Survey.html',
+    path: '/static/LegitimateEmails/9Survey.html',
     category: 'legitimate',
     sender: 'HR@delticore.com',
     receiver: 'userwork',
     subject: 'Delticore Company Survey',
     title: 'Legitimate',
-    desc: 'This is a legitimate work-related email. As the sender email matches the Delticore domain, and the survey link matches a legitimate Google forms domain.',
+    desc: 'The sender email matches the Delticore domain, and the survey link matches a legitimate Google forms domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/9.png'
     },
     { 
-    path: '/static/LegitimateEmails/10 SalesReport.html',
+    path: '/static/LegitimateEmails/10SalesReport.html',
     category: 'legitimate',
     sender: 'daniel.jones@delticore.com',
     receiver: 'userwork',
     subject: 'Weekly Sales Report',
     title: 'Legitimate',
-    desc: 'This is a legitimate work-related email. As the sender email matches the Delticore domain, and the context seems expected and legitimate.',
+    desc: 'The sender email matches the Delticore domain, and the context seems expected and legitimate.',
     thumbnail: '/static/LegitimateEmails/thumbnails/10.png'
     },
 
@@ -177,17 +108,17 @@ const emailist = [
     // MALICIOUS //
     //////////////////////////////////////////////////////////////////
     { 
-    path: '/static/MaliciousEmails/1 Other Gmail Signin Attempt.html',
+    path: '/static/MaliciousEmails/1OtherGoglooAttempt.html',
     category: 'malicious',
     sender: 'no-reply@ggl.hdfe.se',
     receiver: 'userpersonal',
     subject: 'New sign-in notification',
     title: 'Phishing',
-    desc: 'This is a fake Google sign in alert. The sender email does not match, and the links are shortned using tinyurl, then hidden behind Google AMP links.',
+    desc: 'The sender email does not match, and the links are shortned using tinyurl.',
     thumbnail: '/static/MaliciousEmails/thumbnails/1.png'
     },
     { 
-    path: '/static/MaliciousEmails/2 COVID 19 SURVEY.html',
+    path: '/static/MaliciousEmails/2COVIDSURVEY.html',
     category: 'malicious',
     sender: 'HR@deltlcore.com',
     receiver: 'userwork',
@@ -197,17 +128,17 @@ const emailist = [
     thumbnail: '/static/MaliciousEmails/thumbnails/2.png'
     },
     { 
-    path: '/static/MaliciousEmails/3 Dropbox.html',
+    path: '/static/MaliciousEmails/3Docubox.html',
     category: 'malicious',
-    sender: 'support@dropboxsupport.com',
+    sender: 'support@docubox-support.com',
     receiver: 'userpersonal',
     subject: 'New sign in on Dropbox',
     title: 'Phishing',
-    desc: 'This is a fake Dropbox email. The links and sender email does not match the "Dropbox.com" domain.',
+    desc: 'This is a fake Dropbox email. The links and sender email does not match the "Docubox.com" domain.',
     thumbnail: '/static/MaliciousEmails/thumbnails/3.png'
     },
     { 
-    path: '/static/MaliciousEmails/4 IssueWithEmail.html',
+    path: '/static/MaliciousEmails/4IssueWithEmail.html',
     category: 'malicious',
     sender: 'support@deltecore.com',
     receiver: 'userwork',
@@ -217,7 +148,7 @@ const emailist = [
     thumbnail: '/static/MaliciousEmails/thumbnails/4.png'
     },
     { 
-    path: '/static/MaliciousEmails/5 LinkedIn.html',
+    path: '/static/MaliciousEmails/5LinkedNet.html',
     category: 'malicious',
     sender: 'sup.li@nextbox.se',
     receiver: 'delticore',
@@ -227,37 +158,27 @@ const emailist = [
     thumbnail: '/static/MaliciousEmails/thumbnails/5.png'
     },
     { 
-    path: '/static/MaliciousEmails/6 Snapchat.html',
+    path: '/static/MaliciousEmails/7MinisoftUpdate.html',
     category: 'malicious',
-    sender: 'support@snapchat.notifyy.com',
+    sender: 'support@minisoft-security-alerts.net',
     receiver: 'userwork',
-    subject: 'Snapchat - Confirm your email address',
+    subject: 'Minisoft - Critical update required',
     title: 'Phishing',
-    desc: 'This is a fake Snapchat email. The sender email and links are incorrect, and it creates a sense of urgency by claiming that someone signed up using your email. ',
-    thumbnail: '/static/MaliciousEmails/thumbnails/6.png'
-    },
-    { 
-    path: '/static/MaliciousEmails/7 OUT OF DATE SYSTEM.html',
-    category: 'malicious',
-    sender: 'support@microsoftsecurity-alerts.com',
-    receiver: 'userwork',
-    subject: 'Microsoft - Critical update required',
-    title: 'Phishing',
-    desc: 'This is a fake Windows email. The email is masking the malicious link with a legitimate looking URL, and mentions a deadline to cause urgency.',
+    desc: 'This is a fake Minisoft email. The email is masking the malicious link with a legitimate looking URL, and mentions a deadline to cause urgency.',
     thumbnail: '/static/MaliciousEmails/thumbnails/7.png'
     },
     { 
-    path: '/static/MaliciousEmails/8 Package.html',
+    path: '/static/MaliciousEmails/8Package.html',
     category: 'malicious',
-    sender: 'no-reply@dhl-services-delivery.net',
+    sender: 'no-reply@parceldelivery7102.net',
     receiver: 'userwork',
-    subject: 'DHL - Package Received!',
+    subject: 'PackageExpress - Package Received!',
     title: 'Phishing',
-    desc: 'This is a fake DHL email. The links do not match the "DHL.com" domain. This exploits the sense of urgency when using package delivery services. ',
+    desc: 'This is a fake email. The links do not match the "DHL.com" domain. This exploits the sense of urgency when using package delivery services. ',
     thumbnail: '/static/MaliciousEmails/thumbnails/8.png'
     },
     { 
-    path: '/static/MaliciousEmails/9 Urgent Request.html',
+    path: '/static/MaliciousEmails/9UrgentRequest.html',
     category: 'malicious',
     sender: 'billbob@delticoreinc.com',
     receiver: 'userwork',
@@ -267,7 +188,7 @@ const emailist = [
     thumbnail: '/static/MaliciousEmails/thumbnails/9.png'
     },
     { 
-    path: '/static/MaliciousEmails/10 Supplier.html',
+    path: '/static/MaliciousEmails/10Supplier.html',
     category: 'malicious',
     sender: 'accounts@rundedniifflim.com',
     receiver: 'delticore',
@@ -277,13 +198,13 @@ const emailist = [
     thumbnail: '/static/MaliciousEmails/thumbnails/10.png'
     },
     { 
-    path: '/static/MaliciousEmails/11 BusinessProposal.html',
+    path: '/static/MaliciousEmails/11BusinessProposal.html',
     category: 'malicious',
-    sender: 'jamesH@software4business-co.com',
+    sender: 'jamesH@software4buziness-co.com',
     receiver: 'delticore',
     subject: 'Business Proposal',
     title: 'Phishing',
-    desc: 'This is a fake work-related email. The sender email is unfamiliar, therefore the attachment file should not to be trusted.',
+    desc: 'This is a fake work-related email. The sender email does not match the company name, therefore the attachment file should not to be trusted.',
     thumbnail: '/static/MaliciousEmails/thumbnails/11.png'
     },
             
@@ -306,18 +227,11 @@ let higheststreak = 0;
 // tracks the user's points
 let points = 0;
 
-//audio/////////
-
 //credit -- universfield
 var correctsound = new Audio('static/audio/correct.mp3');
 var incorrectsound = new Audio('static/audio/incorrect.mp3');
 correctsound.volume=.5;
 incorrectsound.volume=.5;
-
-////////////////
-
-// initialising leaderboard /////////
-
 
 // stores the user's entered username.
 var nameofuser = "empty";
@@ -361,7 +275,16 @@ function StartGame(){
     // stores username
     nameofuser = document.getElementById('yourname').value;
 
-    // displays the header
+    // hide the introduction
+    document.getElementById("btnStartGame").style.display = "none";
+    document.getElementById("Title").style.display = "none";
+    document.getElementById("gamedescription").style.display = "none";
+    document.getElementById("briefing").style.display = "none";
+    document.getElementById("disclaimer").style.display = "none";
+    document.getElementById("introlist").style.display = "none";
+    document.getElementById("userinputcontainer").style.display = "none";
+
+    // display the iframe, header, and buttons
     document.getElementById("emailframe").style.visibility = "visible";
     document.getElementById("headeremail").style.visibility = "visible";
     document.getElementById("chbuttons").style.display = "block";
@@ -377,25 +300,20 @@ function StartGame(){
         }
       }
 
-    document.getElementById("btnStartGame").style.display = "none";
-    document.getElementById("Title").style.display = "none";
-    document.getElementById("gamedescription").style.display = "none";
-    document.getElementById("briefing").style.display = "none";
-    document.getElementById("introlist").style.display = "none";
-    document.getElementById("userinputcontainer").style.display = "none";
-
     //get iframe
     let iframe = document.getElementsByTagName('iframe')[0];
-    // show the first email, and update the email header to provide relevant
+    // show the first email
     iframe.setAttribute('src', randomized_emaillist[questionnum].path);
+
+
+    // set the current question to glow
+    var currentquestiontext = document.getElementById("q"+ (questionnum + 1))
+
+    // CREDIT TO https://yaroslavweb.github.io/Neon-Generator/ FOR THE CSS //
+    currentquestiontext.classList.add("neoncurrentquestion");
 
     // update email header
     updateEmailHeader();
-    
-    var currentquestiontext = document.getElementById("q"+ (questionnum + 1))
-    currentquestiontext.classList.add("neoncurrentquestion");
-
-
 }
 
 
@@ -409,7 +327,7 @@ function updateEmailHeader(){
         document.getElementById("receiverid").textContent="To: " + nameofuser + "@delticore.com";
     }
     else if (receivername === 'userpersonal'){
-        document.getElementById("receiverid").textContent="To: " + nameofuser + "@gmail.com";
+        document.getElementById("receiverid").textContent="To: " + nameofuser + "@gogloomail.com";
     }
     else{
         if (receivername === 'delticore'){
@@ -465,8 +383,6 @@ function showQuestion() {
     showResults();
 
     }
-
-    
 }
 
 function streakPopup(){
@@ -490,49 +406,49 @@ function checkStreak(){
     } else if (streak === 3) {
     streakPopup();
     storeHighestStreak();
-    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +100 bonus points';
+    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +100 bonus points';
     points += 100;
 
     } else if (streak === 4) {
     streakPopup();
     storeHighestStreak();
-    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +150 bonus points';
+    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +150 bonus points';
     points += 150;
 
     } else if (streak === 5) {
     streakPopup();
     storeHighestStreak();
-    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +200 bonus points';
+    document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +200 bonus points';
     points += 200;
     
     }else if (streak === 6) {
         streakPopup();
         storeHighestStreak();
-        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +250 bonus points';
+        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +250 bonus points';
         points += 250;
     
     }else if (streak === 7) {
         streakPopup();
         storeHighestStreak();
-        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +300 bonus  points';
+        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +300 bonus  points';
         points += 300;
     
     }else if (streak === 8) {
         streakPopup();
         storeHighestStreak();
-        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +350 bonus points';
+        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +350 bonus points';
         points += 350;
 
     }else if (streak === 9) {
         streakPopup();
         storeHighestStreak();
-        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +400 bonus points';
+        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +400 bonus points';
         points += 400;
 
     }else if (streak === 10) {
         streakPopup();
         storeHighestStreak();
-        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonmalicious"></i> +600 bonus points';
+        document.getElementById("streakdesc").innerHTML = '<i class="fa-solid fa-fire neonfire"></i> +600 bonus points';
         points += 600;
     }
     
@@ -556,7 +472,6 @@ function showResults(){
     document.getElementById("resultsDiv").style.display = "block";
     document.getElementById("correctNo").innerHTML = gameScoreCorrect;
     document.getElementById("incorrectNo").innerHTML = gameScoreIncorrect;
-
     document.getElementById("scoreNo").innerHTML = points;
     document.getElementById("highestStreakNo").innerHTML = higheststreak;
     let qnum = 1;
@@ -691,6 +606,9 @@ function restartGame(){
     document.getElementById("gamedescription").style.display = "block";
 
     document.getElementById("introlist").style.display = "block";
+
+    document.getElementById("disclaimer").style.display = "block";
+
     document.getElementById("briefing").style.display = "block";
     document.getElementById("userinputcontainer").style.display = "block";
 

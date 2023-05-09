@@ -51,7 +51,7 @@
   /*email header gap */
   --bs-gutter-y: 0;
   position: relative;
-  top: 60px;
+  top: 25px;
   width: 1280px;
   height: 720px;
   box-shadow: 0 0 20px #000;
@@ -65,7 +65,7 @@
     /*email header gap */
     --bs-gutter-y: 0;
     position: relative;
-    top: 60px;
+    top: 25px;
     width: 300px;
     height: auto;
     margin-left: 10px;
@@ -153,12 +153,12 @@
 .resultscreen{
 
   position: relative;
-  top: 40px;
+  top: 10px;
   width: 1900px;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-bottom: 50px;
   
 }
@@ -219,23 +219,23 @@
 
 .pcenter{
   margin: 0 auto;
-  margin-top: 20px; 
+  margin-top: 10px; 
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding: 10px; 
-  font-size: larger;
+  font-size: x-large;
 
 }
 
 .bcenter{
   margin: 0 auto;
-  margin-top: 15px; 
+  margin-top: 1px; 
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding: 10px; 
-  font-size: larger;
+  font-size: x-large;
 
 }
 
@@ -437,11 +437,6 @@
   margin-bottom: 10px;
 }
 
-.scorelist span svg {
-  height: 12px;
-  width: 12px;
-}
-
 .scorelist p {
   display: block;
   font-family: sans-serif;
@@ -622,7 +617,7 @@
           }
             
 
-.neonmalicious {
+.neonfire {
                 animation: neonanim2 2s alternate-reverse infinite;
                 color: #FDCF58;
                 font-family: Cursive;
@@ -642,29 +637,8 @@
           }
 }
 
-.neonlegitimate {
-                animation: neonanim3 2s alternate-reverse infinite;
-                color: #FFFFFF;
-                font-family: Consolas;
-                font-size: 20px;
-            }
-          @keyframes neonanim3 {
-          from {
-            text-shadow:
-              0 0 10px rgba(255, 255, 255, .7),
-              0 0 40px rgba(255, 255, 255, .7),
-              0 0 100px rgba(255, 255, 255, .7);
-          }
-          to {
-            text-shadow:
-              0 0 5px rgba(255, 255, 255, .7),
-              0 0 20px rgba(255, 255, 255, .7),
-              0 0 60px rgba(255, 255, 255, .7);
-          }
-}
-
 /* ####################################### 
-ANIMISTA
+ANIMISTA ANIMATIONS FOR ANSWER STREAKS
 ######################################### */
  
 .tracking-in-expand-fwd {

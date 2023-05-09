@@ -31,9 +31,9 @@
         <body id="page-top" class="bg1">
           
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
                 <div class="container">
-                    <a class="navbar-brand" href="/"><img class="headerlogo" src="static/assets/logodarkblue.png">Phishology</a>
+                    <a class="navbar-brand" href="/"><img class="headerlogo" src="static/assets/logowhite.png">Phishology</a>
                     <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         Menu
                         <i class="fas fa-bars"></i>
@@ -47,7 +47,7 @@
                 </div>
             </nav>
 
-        <h1>Phishology</h1>
+
         
         <!-- The game will be rendered here 
         <div id="game">
@@ -72,7 +72,6 @@
             </div>
           </div>
           
-
           <div class="resultcards" id="answersummary" >
           </div>
         </div>
@@ -84,17 +83,18 @@
               <h2 class="tcenter" id="Title">Welcome to Phishology</h2> 
               <p id="gamedescription" class="pcenter">
                 
-                You are an email support specialist working at a fictional organisation named <b>Delticore Industries.</b> <br><br>
-                <i>You will be tasked with managing emails sent to: <br></p> <!-- add end i tag here to make header normal--></i>
+                You are an email support specialist working at a fictional organisation named <b>Delticore Industries.</b> <br>
+                <i>You will be tasked with managing 10 emails sent to: <br></p> <!-- add end i tag here to make header normal--></i>
                   
                 <div id="introlist" class="introlistcontainer"> 
                   <ul class="fa-ul">
                     <li><span class="fa-li"><i class="fa-solid fa-building"></i></span>Delticore's contact address <b>(contact@delticore.com)</b></li>
                     <li><span class="fa-li"><i class="fas fa-briefcase"></i></span>Your work related email <b>(<span id="workname"></span>@delticore.com)</b></li>
-                    <li><span class="fa-li"><i class="fas fa-laptop"></i></span>Your personal email <b>(<span id="persname"></span>@gmail.com)</b></li>
+                    <li><span class="fa-li"><i class="fas fa-laptop"></i></span>Your personal email <b>(<span id="persname"></span>@gogloomail.com)</b></li>
                   </ul>
                 </div> 
-                <p id="briefing" class="bcenter">Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.<br><br></p>
+                <p class="bcenter" id="disclaimer" style="font-size: 15px;"><b>Disclaimer: The emails used in this platform are fictitious, and do not represent actual companies.</b></p>
+                <p id="briefing" class="bcenter">Take the time to analyse each email and decide whether the email is <b>Malicious</b> or <b>Legitimate</b>.</p>
                
                 <div id="userinputcontainer" class="center">
                   <span class="font1"><b>Please enter your name</b></span><br>
@@ -102,7 +102,7 @@
                   <span id="emptynotify" style="display: none; color:rgb(122, 22, 22)">The username cannot be empty!</span>
           
                   <br>
-                  <i>(p.s. You are working alone today as the rest of the email support team are away)</i> 
+                  <br>
                 </div>
               
               <button id="btnStartGame" class="btn btn-startgame btn-xl enabled cardshadow" text-align="center" vertical-align="middle" line-height="90px" onclick="checkempty();getUsername()" >
@@ -140,7 +140,7 @@
           </div> 
 
         <!-- https://blog.prototypr.io/research-in-game-streaks-92bfb229e776-->
-        <!-- TEMPLATE CREDIT: https://uiverse.io/Yaya12085/serious-eagle-83 -->
+        <!-- CARD CREDIT: https://uiverse.io/Yaya12085/serious-eagle-83 -->
         <div class="score-box" id="scorebox">
           
           <div class="score-container">
@@ -152,8 +152,8 @@
                 <p id="streaknumber">0</p>
               </div>
               <p id="streakdesc" class="streak-desc">
-                <!-- invisible chracter here-->
-                &#8205;
+                <!-- displays the streak notification -->
+                &#8205;<!-- invisible chracter for space-->
               </p>
             </div>
             <div>
