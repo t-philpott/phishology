@@ -19,7 +19,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'Suspicious sign in attempt blocked',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Google. As the sender email and link matches with the "Google.com" domain.',
+    desc: 'This is a legitimate email from Gogloo. As the sender email and link matches with the "Gogloo.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/1.png'
     },
     { 
@@ -56,7 +56,7 @@ const emailist = [
     { 
     path: '/static/LegitimateEmails/5Coinlink.html',
     category: 'legitimate',
-    sender: 'notify@coinlink.com',
+    sender: 'noreply@notify.coinlink.com',
     receiver: 'userpersonal',
     subject: 'Coinlink - Download your Transaction History',
     title: 'Legitimate',
@@ -90,7 +90,7 @@ const emailist = [
     receiver: 'userwork',
     subject: 'Delticore Company Survey',
     title: 'Legitimate',
-    desc: 'The sender email matches the Delticore domain, and the survey link matches a legitimate Google forms domain.',
+    desc: 'The sender email matches the Delticore domain, and the survey link matches a legitimate Gogloo Forms domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/9.png'
     },
     { 
@@ -114,7 +114,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'New sign-in notification',
     title: 'Phishing',
-    desc: 'The sender email does not match, and the links are shortned using tinyurl.',
+    desc: 'The sender email does not match, and the links are shortened using a link shortener. There are also some grammar errors.',
     thumbnail: '/static/MaliciousEmails/thumbnails/1.png'
     },
     { 
@@ -154,7 +154,7 @@ const emailist = [
     receiver: 'delticore',
     subject: 'Password reset request received',
     title: 'Phishing',
-    desc: 'This is a fake LinkedIn email. The sender email and link does not match with the "Linkedin.com" domain.',
+    desc: 'This is a fake LinkedNet email. The sender email and link does not match with the "LinkedNet.com" domain.',
     thumbnail: '/static/MaliciousEmails/thumbnails/5.png'
     },
     { 
@@ -174,7 +174,7 @@ const emailist = [
     receiver: 'userwork',
     subject: 'PackageExpress - Package Received!',
     title: 'Phishing',
-    desc: 'This is a fake email. The links do not match the "DHL.com" domain. This exploits the sense of urgency when using package delivery services. ',
+    desc: 'This is a fake email. The links do not match the "PackageExpress.com" domain stated in the email. This email also exploits the sense of urgency when using package delivery services. ',
     thumbnail: '/static/MaliciousEmails/thumbnails/8.png'
     },
     { 
@@ -190,7 +190,7 @@ const emailist = [
     { 
     path: '/static/MaliciousEmails/10Supplier.html',
     category: 'malicious',
-    sender: 'accounts@rundedniifflim.com',
+    sender: 'accounts@quiillworks.com',
     receiver: 'delticore',
     subject: 'Payment Overdue',
     title: 'Phishing',
