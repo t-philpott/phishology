@@ -132,9 +132,9 @@ const emailist = [
     category: 'malicious',
     sender: 'support@docubox-support.com',
     receiver: 'userpersonal',
-    subject: 'New sign in on Dropbox',
+    subject: 'New sign in on Docubox',
     title: 'Phishing',
-    desc: 'This is a fake Dropbox email. The links and sender email does not match the "Docubox.com" domain.',
+    desc: 'This is a fake Docubox email. The links and sender email does not match the "Docubox.com" domain.',
     thumbnail: '/static/MaliciousEmails/thumbnails/3.png'
     },
     { 
