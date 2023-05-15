@@ -588,13 +588,13 @@ function restartGame(){
     gameScoreIncorrect = 0;
     points = 0;
     streak = 0;
+    higheststreak = 0;
 
     removeResultCards();
     clearScoreboard();
 
     // hide streak notification
-    document.getElementById("streakdesc").classList.remove("tracking-in-expand-fwd");
-    document.getElementById("streakdesc").style.display = "none";
+    document.getElementById("streakdesc").innerHTML = '&#8205;';
 
     // hide results
     document.getElementById("resultsDiv").style.display = "none";
@@ -659,7 +659,7 @@ function btnMaliciousClick(){
 
         answered_questions.push(randomized_emaillist[questionnum]);
         answered_questions[questionnum].usersanswer = "malicious";
-        console.log(answered_questions);
+        //console.log(answered_questions);
         
         // changes the circle representing the current question to red.
         let circlenumber = questionnum+1;
