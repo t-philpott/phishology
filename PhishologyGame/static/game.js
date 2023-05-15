@@ -19,7 +19,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'Suspicious sign in attempt blocked',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from Gogloo. As the sender email and link matches with the "Gogloo.com" domain.',
+    desc: 'The sender email domain and link(s) within the email matches with the "Gogloo.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/1.png'
     },
     { 
@@ -29,7 +29,7 @@ const emailist = [
     receiver: 'delticore',
     subject: 'Recent login detected on Chirper',
     title: 'Legitimate',
-    desc: 'The sender email and link matches with the "Chirper.com" sender email domain',
+    desc: 'The sender email domain and link(s) within the email matches with the "Chirper.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/2.png'
     },
     { 
@@ -39,7 +39,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'New login on Soundify',
     title: 'Legitimate',
-    desc: 'The sender email and link matches with the "Soundify.com" sender email domain',
+    desc: 'The sender email domain and link(s) within the email matches with the "Soundify.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/3.png'
     
     },
@@ -50,7 +50,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'Instaframe Log-in notification',
     title: 'Legitimate',
-    desc: 'The he sender email and link matches with the "Instaframe.com" domain.',
+    desc: 'The sender email domain and link(s) within the email matches with the "Instaframe.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/4.png'
     },
     { 
@@ -60,7 +60,7 @@ const emailist = [
     receiver: 'userpersonal',
     subject: 'Coinlink - Download your Transaction History',
     title: 'Legitimate',
-    desc: 'The sender email and links within the email matches with the "Coinlink.com" domain.',
+    desc: 'The sender email and link(s) within the email matches with the "Coinlink.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/5.png'
     },
     { 
@@ -70,7 +70,7 @@ const emailist = [
     receiver: 'userwork',
     subject: 'Company party',
     title: 'Legitimate',
-    desc: 'This is a legitimate email from your co-workers. As the sender email matches the Delticore domain.',
+    desc: 'This is a legitimate email from your co-workers. As the sender email matches the "Delticore.com" domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/6.png'
     },
     { 
@@ -90,7 +90,7 @@ const emailist = [
     receiver: 'userwork',
     subject: 'Delticore Company Survey',
     title: 'Legitimate',
-    desc: 'The sender email matches the Delticore domain, and the survey link matches a legitimate Gogloo Forms domain.',
+    desc: 'The sender email matches the Delticore domain, and the survey link matches a legitimate Delticore domain.',
     thumbnail: '/static/LegitimateEmails/thumbnails/9.png'
     },
     { 
